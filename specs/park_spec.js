@@ -39,7 +39,12 @@ describe("Park", function(){
   });
 
   it("should get all the dinosaurs with an offspring count of more than 2", function(){
-
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    const results = park.calculateDinosaursWithHighOffspringYield(2);
+    assert.strictEqual(results.length, 3);
   });
 
 });

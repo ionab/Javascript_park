@@ -17,4 +17,13 @@ Park.prototype.removeDinoByType = function(dinosaurType) {
   }
 };
 
+Park.prototype.calculateDinosaursWithHighOffspringYield = function (threshold) {
+  const dinosaurs = [];
+  for (var i = 0 ; i < this.enclosure.length ; i++){
+    if(this.enclosure[i].annualOffspringYield > threshold){
+      dinosaurs.push(this.enclosure[i]);
+    }
+  }return dinosaurs;
+};
+
 module.exports = Park;
