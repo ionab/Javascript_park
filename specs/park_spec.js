@@ -12,10 +12,23 @@ describe("Park", function(){
 
   beforeEach(function(){
     park = new Park();
+    dinosaur = new Dinosaur("Tyrannosaurus", 3);
   })
 
   it("should have an enclosure that start empty", function(){
     assert.strictEqual(park.enclosure.length, 0);
+  })
+
+  it("should be able to add dinosaur", function(){
+
+    park.addDinosaur(dinosaur);
+    assert.strictEqual(park.enclosure.length, 1);
+  })
+
+  it("should be able to remove all dinosaurs of a particular type", function(){
+
+
+
   })
 
 });

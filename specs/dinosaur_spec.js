@@ -16,7 +16,6 @@ describe("Dinosaur", function(){
     assert.strictEqual(dinosaur.species, "Tyrannosaurus");
   })
 
-
   it("should have a number of offspring per year", function(){
     assert.strictEqual(dinosaur.annualOffspringYield, 3)
   })
