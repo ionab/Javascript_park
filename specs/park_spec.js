@@ -46,5 +46,17 @@ describe("Park", function(){
     const results = park.calculateDinosaursWithHighOffspringYield(2);
     assert.strictEqual(results.length, 3);
   });
+  //
+  // 1. should be able to calculate number of dinosaurs after year one, starting with 1 dinosaur
+  // 2. should be able to calculate number of dinosaurs after year two, starting with 1 dinosaur
+  // 4. should be able to calculate number of dinosaurs after year two, starting with 2 dinosaurs
+
+  it("should be able to calculate number of dinosaurs after year one, starting with 1 dinosaur", function(){
+    park.addDinosaur(dinosaur1);
+
+    const result = park.waitTime();
+
+    assert.strictEqual(result, 7);
+  });
 
 });
