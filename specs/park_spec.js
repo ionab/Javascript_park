@@ -12,7 +12,7 @@ describe("Park", function(){
 
   beforeEach(function(){
     park = new Park();
-    dinosaur1 = new Dinosaur("Tyrannosaurus", 6);
+    dinosaur1 = new Dinosaur("Tyrannosaurus", 2);
     dinosaur2 = new Dinosaur("Velociraptor", 3);
     dinosaur3 = new Dinosaur("Triceratops", 2);
   })
@@ -38,14 +38,14 @@ describe("Park", function(){
     assert.strictEqual(park.enclosure.length, 2);
   });
 
-  it("should get all the dinosaurs with an offspring count of more than 2", function(){
-    park.addDinosaur(dinosaur1);
-    park.addDinosaur(dinosaur1);
-    park.addDinosaur(dinosaur2);
-    park.addDinosaur(dinosaur3);
-    const results = park.calculateDinosaursWithHighOffspringYield(2);
-    assert.strictEqual(results.length, 3);
-  });
+  // it("should get all the dinosaurs with an offspring count of more than 2", function(){
+  //   park.addDinosaur(dinosaur1);
+  //   park.addDinosaur(dinosaur1);
+  //   park.addDinosaur(dinosaur2);
+  //   park.addDinosaur(dinosaur3);
+  //   const results = park.calculateDinosaursWithHighOffspringYield(2);
+  //   assert.strictEqual(results.length, 3);
+  // });
   //
   // 1. should be able to calculate number of dinosaurs after year one, starting with 1 dinosaur
   // 2. should be able to calculate number of dinosaurs after year two, starting with 1 dinosaur
@@ -53,10 +53,21 @@ describe("Park", function(){
 
   it("should be able to calculate number of dinosaurs after year one, starting with 1 dinosaur", function(){
     park.addDinosaur(dinosaur1);
+    const result = park.waitTime(1);
+    assert.strictEqual(result, 3);
+  });
 
-    const result = park.waitTime();
+  it("should be able to calculate number of dinosaurs after year two, starting with 1 dinosaur", function(){
+    park.addDinosaur(dinosaur1);
+    const result = park.waitTime(2);
+    assert.strictEqual(result, 9);
+  });
 
-    assert.strictEqual(result, 7);
+  it("should be able to calculate number of dinosaurs after year two, starting with 2 dinosaurs", function(){
+    park.addDinosaur(dinosaur1);
+    park.addDinosaur(dinosaur1);
+    const result = park.waitTime(2);
+    assert.strictEqual(result, 18);
   });
 
 });

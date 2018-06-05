@@ -26,12 +26,14 @@ Park.prototype.calculateDinosaursWithHighOffspringYield = function (threshold) {
   }return dinosaurs;
 };
 
-Park.prototype.waitTime = function() {
+Park.prototype.waitTime = function(years) {
 
-  let count = this.enclosure.length;
+  let count = 0;
+
   for (var i = 0 ; i < this.enclosure.length ; i++){
-    count += this.enclosure[i].annualOffspringYield;
+    count += (1 + this.enclosure[i].annualOffspringYield)**years;
   }
+
   return count;
 };
 
